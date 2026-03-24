@@ -10,13 +10,16 @@ def Nombre():
 def abre_funcion():
     Ventana2 = tk.Toplevel(ventana)
     Ventana2.title("Funcion pares")
-    Ventana2.geometry("500x500")
+    Ventana2.geometry("600x600")
     Ventana2.configure(
         background= 'beige',
     )
+    Ventana2.grab_set()
+    Ventana2.resizable(width= False, height= False)
     Vuelve = tk.Button(Ventana2, text = 'Volver a la Ventana Principal', bg = 'Red', fg = 'White', command = lambda:Ventana2.destroy())
     Vuelve.place(x = 300, y= 400)
 
+def movimiento_naranja():
 
     Ventana2.mainloop()
 
@@ -27,11 +30,25 @@ def abre_animacion():
     Ventana3.configure(
         background= 'white',
     )
+    Ventana3.grab_set()
+    Ventana3.resizable(width= False, height= False)
     canva_e = tk.Canvas(Ventana3, bg = 'black', width=500, height=500)
     canva_e.pack()
     bola = canva_e.create_oval(50, 50, 100, 100, fill='red')
+    
+    vx = 5
+    vy = 5
+    def mover_bola():
+        global vx, vy
+        x1, y1, x2, y2 = canva_e.coords(bola)
+        if x1 <= 0 or x2 >= 500:
+            vx = -vx
+        if y1 <= 0 or y2 >= 500:
+            vy = -vy
+        canva_e.move(bola, vx, vy)
+
     origen = tk.Button(Ventana3, text = 'Volver a la Ventana Principal', bg = 'Red', fg = 'White', command = lambda:Ventana3.destroy())
-    origen.place(x = 300, y= 590)
+    origen.place(x = 300, y= 500)
     Ventana3.mainloop()
 
 
@@ -52,10 +69,10 @@ def cerrarVentana():
 
 ventana.resizable(width= False, height= False)
 
-canva1 = tk.Canvas(ventana, bg = 'pink', width=250, height=250)
+canva1 = tk.Canvas(ventana, bg = '#D6E8EE', width=250, height=250)
 canva1.pack()
 
-tk.Label(canva1, text = 'Max Andrés Quirós Hernández', background= 'Blue', foreground= 'Black', font = ('Arial', 12)).place(x= 25, y= 15)
+tk.Label(canva1, text = 'Max Andrés Quirós Hernández', background= '#C6DA52', foreground= 'Black', font = ('Arial', 12)).place(x= 25, y= 15)
 
 
 
