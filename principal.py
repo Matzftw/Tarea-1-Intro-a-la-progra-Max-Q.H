@@ -3,6 +3,7 @@
 import tkinter as tk
 import math as mt   #import super util (no hizo nada)
 import pygame #Solo para audio
+import pillow #Solo para imagenes
 
 def Nombre():
     print("Matz")
@@ -35,6 +36,7 @@ def abre_animacion():
     canva_e = tk.Canvas(Ventana3, bg = 'black', width=500, height=500)
     canva_e.pack()
     bola = canva_e.create_oval(50, 50, 100, 100, fill='red')
+    bola
     
     vx = 5
     vy = 5
@@ -60,7 +62,7 @@ ventana = tk.Tk()
 ventana.title("Perfil")
 ventana.geometry("500x500")
 ventana.configure(
-    background= 'gray',
+    background= 'black',
 )
 
 def cerrarVentana():
@@ -69,20 +71,20 @@ def cerrarVentana():
 
 ventana.resizable(width= False, height= False)
 
-canva1 = tk.Canvas(ventana, bg = '#D6E8EE', width=250, height=250)
+canva1 = tk.Canvas(ventana, bg = 'gray', width=250, height=250)
 canva1.pack()
 
-tk.Label(canva1, text = 'Max Andrés Quirós Hernández', background= '#C6DA52', foreground= 'Black', font = ('Arial', 12)).place(x= 25, y= 15)
-
+tk.Label(canva1, text = 'Max Andrés Quirós Hernández',background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 15)
+tk.Label(canva1, text = 'Edad: 18 años', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 40)
 
 
 botonM = tk.Button(ventana, text = 'Cerrar la Ventana', bg = 'Red', command = lambda:cerrarVentana())
 botonM.place(x = 300, y= 400)
 
-boton1 = tk.Button(canva1, text = 'Perfil', bg = 'purple', command = lambda:Nombre())
-boton1.place(x= 50, y= 100)
+#boton1 = tk.Button(canva1, text = 'Perfil', bg = 'purple', command = lambda:Nombre())
+#boton1.place(x= 50, y= 100)
 
-boton2 = tk.Button(ventana, text = 'Funcion Pares', bg = 'cyan', command = lambda:abre_funcion())
+boton2 = tk.Button(ventana, text = 'Funcion Pares', bg = 'lime', command = lambda:abre_funcion())
 boton2.place(x= 50, y= 400)
 
 boton3 = tk.Button(ventana, text = 'Animacion Esferas', bg = 'cyan', command = lambda:abre_animacion())
