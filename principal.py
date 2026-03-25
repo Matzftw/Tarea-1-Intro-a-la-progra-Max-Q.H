@@ -3,10 +3,8 @@
 import tkinter as tk
 import math as mt   #import super util (no hizo nada)
 import pygame #Solo para audio
-import pillow #Solo para imagenes
+from PIL import Image #Solo para imagenes
 
-def Nombre():
-    print("Matz")
 
 def abre_funcion():
     Ventana2 = tk.Toplevel(ventana)
@@ -20,8 +18,6 @@ def abre_funcion():
     Vuelve = tk.Button(Ventana2, text = 'Volver a la Ventana Principal', bg = 'Red', fg = 'White', command = lambda:Ventana2.destroy())
     Vuelve.place(x = 300, y= 400)
 
-def movimiento_naranja():
-
     Ventana2.mainloop()
 
 def abre_animacion():
@@ -29,14 +25,15 @@ def abre_animacion():
     Ventana3.title("Animacion esferas")
     Ventana3.geometry("600x600")
     Ventana3.configure(
-        background= 'white',
+        background= 'gray',
     )
     Ventana3.grab_set()
     Ventana3.resizable(width= False, height= False)
     canva_e = tk.Canvas(Ventana3, bg = 'black', width=500, height=500)
-    canva_e.pack()
+    canva_e.place(x= 50, y= 50)
+    #canva_e.pack()
     bola = canva_e.create_oval(50, 50, 100, 100, fill='red')
-    bola
+    
     
     vx = 5
     vy = 5
@@ -54,7 +51,7 @@ def abre_animacion():
     Ventana3.mainloop()
 
 
-# Falta bloquear el tamaño de las ventanas acuérdese de hacerlo mae 
+
 
 
 ventana = tk.Tk()
@@ -71,13 +68,15 @@ def cerrarVentana():
 
 ventana.resizable(width= False, height= False)
 
-canva1 = tk.Canvas(ventana, bg = 'gray', width=250, height=250)
-canva1.pack()
+canva1 = tk.Canvas(ventana, bg = 'gray', width=300, height=300)
+canva1.place(x= 125, y= 50)
+#canva1.pack(side= 'top')
 
 tk.Label(canva1, text = 'Max Andrés Quirós Hernández',background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 15)
 tk.Label(canva1, text = 'Edad: 18 años', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 40)
-
-
+tk.Label(canva1, text = 'Carnet: 2026125772', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 65)
+tk.Label(canva1, text = 'Biografía: Soy Max, nací en Moravia pero desde hace unos años vivo aquí, me gusta hacer atletismo y jugar Valorant aunque soy malísimo', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 90)
+tk.Label(canva1, image = '', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 115)
 botonM = tk.Button(ventana, text = 'Cerrar la Ventana', bg = 'Red', command = lambda:cerrarVentana())
 botonM.place(x = 300, y= 400)
 
