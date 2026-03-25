@@ -5,16 +5,62 @@ import math as mt   #import super util (no hizo nada)
 import pygame #Solo para audio
 from PIL import Image #Solo para imagenes
 
+#def digitos(entrada):
+#    digitos = entrada // 2, entrada % 2 
+#    return digitos
+
+
+
+def pares(num):
+    if num == 0:
+        return (0,0)
+    elif isinstance(num,int) and num > 0 and num < 9999:
+        return pares_aux(abs(num))
+    else:
+        return -1
+
+def pares_aux(num):
+    if num == 0:
+        b = num // a
+        if a <= b:
+            return ({a}, {b})
+    else:
+        return -1
+
+
 
 def abre_funcion():
     Ventana2 = tk.Toplevel(ventana)
     Ventana2.title("Funcion pares")
     Ventana2.geometry("600x600")
     Ventana2.configure(
-        background= 'beige',
+        background= 'gray',
     )
+    canvas_num = tk.Canvas(Ventana2, bg = 'black', width=500, height=500)
+    canvas_num.place(x= 50, y= 50)
+
+    numero = tk.Entry(canvas_num, width= 20)
+    numero.place(x= 200, y= 240)
+
+    entrada = numero.get()
+
+
+    #entrada1 = tk.Button(canvas_num, text = 'Listo', bg = 'cyan', command = lambda:pares((numero.get())))
+    #entrada1.place(x = 200, y = 280)
+    
+    #inicio_funcion = tk.Button(canvas_num, text ='Empezar', bg = 'lime', fg = 'black', command = lambda: pares((entrada(numero.get()))))
+    #inicio_funcion.place(x = 200, y= 300)
+
+
+
+    salida1 = tk.Label(canvas_num, text = 'pares_aux.get()', background= 'white' ,foreground= 'white', font = ('Times New Roman', 12))
+    salida1.place(x= 200, y= 420)
+
+
     Ventana2.grab_set()
     Ventana2.resizable(width= False, height= False)
+    
+    
     Vuelve = tk.Button(Ventana2, text = 'Volver a la Ventana Principal', bg = 'Red', fg = 'White', command = lambda:Ventana2.destroy())
     Vuelve.place(x = 300, y= 400)
 
@@ -75,8 +121,12 @@ canva1.place(x= 125, y= 50)
 tk.Label(canva1, text = 'Max Andrés Quirós Hernández',background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 15)
 tk.Label(canva1, text = 'Edad: 18 años', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 40)
 tk.Label(canva1, text = 'Carnet: 2026125772', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 65)
-tk.Label(canva1, text = 'Biografía: Soy Max, nací en Moravia pero desde hace unos años vivo aquí, me gusta hacer atletismo y jugar Valorant aunque soy malísimo', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 90)
+tk.Label(canva1, text = 'Biografía: Soy Max, nací en Moravia pero desde hace unos años vivo aquí, me gusta hacer atletismo y jugar Valorant aunque soy malísimo', width=300,justify='left',background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 90)
 tk.Label(canva1, image = '', background= 'gray' ,foreground= 'white', font = ('Times New Roman', 12)).place(x= 25, y= 115)
+
+
+
+
 botonM = tk.Button(ventana, text = 'Cerrar la Ventana', bg = 'Red', command = lambda:cerrarVentana())
 botonM.place(x = 300, y= 400)
 
