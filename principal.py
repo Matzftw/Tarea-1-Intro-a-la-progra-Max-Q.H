@@ -8,7 +8,7 @@ from PIL import Image #Solo para imagenes
 #def digitos(entrada):
 #    digitos = entrada // 2, entrada % 2 
 #    return digitos
-
+#prueba
 
 
 def pares(num):
